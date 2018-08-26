@@ -20,6 +20,7 @@ namespace Movie_Catalog
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://localhost:63063/")
                 .Build();
     }
 }

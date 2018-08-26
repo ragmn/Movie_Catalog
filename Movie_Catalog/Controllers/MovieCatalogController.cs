@@ -25,7 +25,8 @@ namespace Movie_Catalog.Controllers
 
         [HttpGet]
         [Produces(typeof(List<Movie>))]
-        public IActionResult GetMoviesMovie()
+     
+        public IActionResult GetMovies()
         {
             List<Movie> movieCatalog = new List<Movie>();
             try
