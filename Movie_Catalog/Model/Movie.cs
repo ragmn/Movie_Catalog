@@ -13,4 +13,5 @@ namespace Movie_Catalog.Model
         [JsonProperty("MovieName")]
         public string MovieName { get; set; }
     }
+
 }

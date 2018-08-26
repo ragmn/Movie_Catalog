@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Helper\" />
+    <Folder Include="DataSource\" />
     <Folder Include="Repo\" />
     <Folder Include="Services\" />
     <Folder Include="wwwroot\" />

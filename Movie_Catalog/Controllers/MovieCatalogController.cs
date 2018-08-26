@@ -19,7 +19,7 @@ namespace Movie_Catalog.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> GetCustomer()
+        public IEnumerable<string> GetMoviesMovie()
         {
             string value1 = _configuration.GetSection("test").GetSection("key").Value;
 
