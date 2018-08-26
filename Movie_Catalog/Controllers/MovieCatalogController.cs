@@ -22,16 +22,15 @@ namespace Movie_Catalog.Controllers
         }
 
         [HttpGet]
+        [Produces(typeof(List<Movie>))]
         public IActionResult GetMoviesMovie()
         {
-            //string value1 = _configuration.GetSection("test").GetSection("key").Value;
             List<Movie> movieCatalog = new List<Movie>();
             try
             {
                 var helper = new JSonHelper(_configuration.GetSection("JsonDataSource").GetSection("Path").Value);
                 var jsonObject = helper.GetJSonString();
                 movieCatalog = jsonObject.First.First.ToObject<List<Movie>>();
-
                 var results = new ObjectResult(movieCatalog)
                 {
                     StatusCode = (int)HttpStatusCode.OK
