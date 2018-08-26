@@ -22,14 +22,13 @@ namespace MovieCatalogAPI.Helper
         /// <returns>JObject</returns>
         public JObject GetJSonString()
         {
-            //JObject jsonString;
-            //using (StreamReader file = File.OpenText(HttpContext.Current.Server.MapPath(FilePath))) 
-            //using (JsonTextReader reader = new JsonTextReader(file))
-            //{
-            //    jsonString = (JObject)JToken.ReadFrom(reader);
-            //}
-            //return jsonString;
-            return null;
+            JObject jsonString;
+            using (StreamReader file = File.OpenText(FilePath))
+            using (JsonTextReader reader = new JsonTextReader(file))
+            {
+                jsonString = (JObject)JToken.ReadFrom(reader);
+            }
+            return jsonString;
         }
     }
 }
