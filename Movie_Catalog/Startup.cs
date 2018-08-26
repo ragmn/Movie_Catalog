@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Movie_Catalog.Repo;
+using Movie_Catalog.Services;
 
 namespace Movie_Catalog
 {
@@ -23,6 +25,7 @@ namespace Movie_Catalog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IMovie, MovieRepo > ();
             services.AddMvc();
         }
 

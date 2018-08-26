@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Movie_Catalog.Model;
+using Movie_Catalog.Services;
 using MovieCatalogAPI.Helper;
 
 namespace Movie_Catalog.Controllers
@@ -15,10 +16,11 @@ namespace Movie_Catalog.Controllers
     [Route("api/MovieCatalog")]
     public class MovieCatalogController : Controller
     {
-        IConfiguration _configuration;
-        public MovieCatalogController(IConfiguration configuration)
+
+        private readonly IMovie _movieRepository;
+        public MovieCatalogController(IMovie movieRepository)
         {
-            _configuration = configuration;
+            _movieRepository = movieRepository;
         }
 
         [HttpGet]
@@ -28,10 +30,7 @@ namespace Movie_Catalog.Controllers
             List<Movie> movieCatalog = new List<Movie>();
             try
             {
-                var helper = new JSonHelper(_configuration.GetSection("JsonDataSource").GetSection("Path").Value);
-                var jsonObject = helper.GetJSonString();
-                movieCatalog = jsonObject.First.First.ToObject<List<Movie>>();
-                var results = new ObjectResult(movieCatalog)
+                var results = new ObjectResult(_movieRepository.GetAll())
                 {
                     StatusCode = (int)HttpStatusCode.OK
                 };
