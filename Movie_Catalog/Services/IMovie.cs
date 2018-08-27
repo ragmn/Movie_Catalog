@@ -1,4 +1,4 @@
-﻿using Movie_Catalog.Model;
+﻿using Movie_Catalog.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

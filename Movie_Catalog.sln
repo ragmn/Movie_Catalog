@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movie_Catalog", "Movie_Catalog\Movie_Catalog.csproj", "{9C4F4930-3209-4238-B888-4044522FA56D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movie_Catalog.Api", "Movie_Catalog\Movie_Catalog.Api.csproj", "{9C4F4930-3209-4238-B888-4044522FA56D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie_Catalog.Tests", "Movie_Catalog.Tests\Movie_Catalog.Tests.csproj", "{D1104CA6-8901-4BFC-8EC7-8B5A19380EF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movie_Catalog.Tests", "Movie_Catalog.Tests\Movie_Catalog.Tests.csproj", "{D1104CA6-8901-4BFC-8EC7-8B5A19380EF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie_Catalog.Entity", "Movie_Catalog.Entity\Movie_Catalog.Entity.csproj", "{3F989C73-03CA-4F89-BE11-6A9DE953D74B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D1104CA6-8901-4BFC-8EC7-8B5A19380EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1104CA6-8901-4BFC-8EC7-8B5A19380EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1104CA6-8901-4BFC-8EC7-8B5A19380EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F989C73-03CA-4F89-BE11-6A9DE953D74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F989C73-03CA-4F89-BE11-6A9DE953D74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F989C73-03CA-4F89-BE11-6A9DE953D74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F989C73-03CA-4F89-BE11-6A9DE953D74B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

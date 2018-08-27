@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Movie_Catalog\Movie_Catalog.csproj" />
+    <ProjectReference Include="..\Movie_Catalog\Movie_Catalog.Api.csproj" />
   </ItemGroup>
 
 </Project>

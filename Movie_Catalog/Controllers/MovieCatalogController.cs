@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Movie_Catalog.Model;
+using Movie_Catalog.Entity;
 using Movie_Catalog.Services;
 using MovieCatalogAPI.Helper;
 

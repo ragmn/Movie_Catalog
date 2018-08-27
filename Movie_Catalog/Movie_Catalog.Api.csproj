@@ -7,6 +7,8 @@
   <ItemGroup>
     <Folder Include="Helper\" />
     <Folder Include="DataSource\" />
+    <Folder Include="Model\" />
+    <Folder Include="Views\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -17,6 +19,10 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Movie_Catalog.Entity\Movie_Catalog.Entity.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Movie_Catalog.Model;
+using Movie_Catalog.Entity;
 using Movie_Catalog.Services;
 using MovieCatalogAPI.Helper;
 using System;
