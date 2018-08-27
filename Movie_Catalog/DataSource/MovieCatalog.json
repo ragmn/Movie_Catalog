@@ -1,40 +1,40 @@
 ﻿{
   "MovieCatolog": [
     {
-      "ID": 1,
-      "MovieName": "Movie Name 1",
+      "MovieID": 1,
+      "MovieTitle": "Movie Name 1",
       "Description": "Description 1",
       "ImageURL": "Image URL 1",
       "ReleaseYear": "1980",
       "Genre": "Science fiction."
     },
     {
-      "ID": 2,
-      "MovieName": "Movie Name 2",
+      "MovieID": 2,
+      "MovieTitle": "Movie Name 2",
       "Description": "Description 2",
       "ImageURL": "Image URL 2",
       "ReleaseYear": "1981",
       "Genre": "Drama."
     },
     {
-      "ID": 3,
-      "MovieName": "Movie Name 3",
+      "MovieID": 3,
+      "MovieTitle": "Movie Name 3",
       "Description": "Description 3",
       "ImageURL": "Image URL 3",
       "ReleaseYear": "1982",
       "Genre": "Action and Adventure."
     },
     {
-      "ID": 4,
-      "MovieName": "Movie Name 4",
+      "MovieID": 4,
+      "MovieTitle": "Movie Name 4",
       "Description": "Description 4",
       "ImageURL": "Image URL 4",
       "ReleaseYear": "1983",
       "Genre": "Romance."
     },
     {
-      "ID": 5,
-      "MovieName": "Movie Name 5",
+      "MovieID": 5,
+      "MovieTitle": "Movie Name 5",
       "Description": "Description 5",
       "ImageURL": "Image URL 5",
       "ReleaseYear": "1984",

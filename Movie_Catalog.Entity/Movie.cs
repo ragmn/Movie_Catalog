@@ -8,7 +8,7 @@ namespace Movie_Catalog.Entity
     {
         public int MovieID { get; set; }
         public string MovieTitle { get; set; }
-        public string MovieDescription { get; set; }
+        public string Description { get; set; }
         public string ImageURL { get; set; }
         public string ReleaseYear { get; set; }
         public string Genre { get; set; }
