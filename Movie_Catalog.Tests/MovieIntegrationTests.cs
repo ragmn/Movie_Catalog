@@ -23,7 +23,7 @@ namespace Movie_Catalog.Tests
         public void GetMoviesTest()
         {
             // Arrange
-            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/MovieCatalog/");
+            var request = new HttpRequestMessage(new HttpMethod("GET"), "http://localhost:63063/api/MovieCatalog");
 
             // Act
             var response = _client.SendAsync(request).Result;
