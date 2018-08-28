@@ -66,7 +66,7 @@ namespace Movie_Catalog.Controllers
         }
         
         [HttpPut("{id}")]
-        public IActionResult PutMovie(int id, [FromBody]Movie movie)
+        public IActionResult PutMovie([FromRoute] int id, [FromBody]Movie movie)
         {
             var blnSucess = _movieRepository.UpdateMovie(id,movie);
             if (blnSucess)
