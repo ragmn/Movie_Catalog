@@ -25,7 +25,6 @@ namespace Movie_Catalog.Controllers
 
         [HttpGet]
         [Produces(typeof(List<Movie>))]
-     
         public IActionResult GetMovies()
         {
             List<Movie> movieCatalog = new List<Movie>();
@@ -37,32 +36,55 @@ namespace Movie_Catalog.Controllers
                 };
                 return results;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ex.LogExceptionToFile("Error.txt");
                 return NotFound();
             }
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public string GetMovie(int id)
+        [Produces(typeof(List<Movie>))]
+        public IActionResult GetMovie([FromRoute]int id)
         {
-            return "value";
+            var movie = _movieRepository.GetMovie(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return Ok(movie);
         }
-        
+
         [HttpPost]
-        public void PostMovie([FromBody]string value)
+        public IActionResult PostMovie([FromBody]Movie movie)
         {
+            var blnSucess = _movieRepository.InsertMovie(movie);
+            if (blnSucess)
+            {
+                return NotFound();
+            }
+            return Ok(movie);
         }
         
         [HttpPut("{id}")]
-        public void PutMovie(int id, [FromBody]string value)
+        public IActionResult PutMovie(int id, [FromBody]Movie movie)
         {
+            var blnSucess = _movieRepository.UpdateMovie(id,movie);
+            if (blnSucess)
+            {
+                return NotFound();
+            }
+            return Ok(movie);
         }
         
         [HttpDelete("{id}")]
-        public void DeleteMovie(int id)
+        public IActionResult DeleteMovie(int id)
         {
+            var blnSucess = _movieRepository.DeleteMovie(id);
+            if (blnSucess)
+            {
+                return NotFound();
+            }
+            return Ok();
         }
     }
 }

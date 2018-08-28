@@ -8,6 +8,15 @@ namespace Movie_Catalog.Services
 {
     public interface IMovie
     {
-        IEnumerable<Movie> GetAll();
+        List<Movie> GetAll();
+
+        Movie GetMovie(int id);
+
+        bool InsertMovie(Movie movie);
+
+        bool DeleteMovie(int id);
+
+        bool UpdateMovie(int id, Movie movie);
+
     }
 }

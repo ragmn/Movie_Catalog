@@ -20,15 +20,44 @@ namespace MovieCatalogAPI.Helper
         /// Gets JSON object
         /// </summary>
         /// <returns>JObject</returns>
-        public JObject GetJSonString()
+        public string GetJSonString()
         {
-            JObject jsonString;
-            using (StreamReader file = File.OpenText(FilePath))
-            using (JsonTextReader reader = new JsonTextReader(file))
+            string jsonString = string.Empty;
+            try
             {
-                jsonString = (JObject)JToken.ReadFrom(reader);
+                using (StreamReader file = File.OpenText(FilePath))
+                {
+                    jsonString = file.ReadToEnd();
+                }
+            }
+            catch(IOException ex)
+            {
+                ex.LogExceptionToFile("Error.txt");
+                throw ex;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
             return jsonString;
+        }
+
+        public bool SaveJSonString(string updatedJson)
+        {
+            try
+            {
+                File.WriteAllText(FilePath, updatedJson.Replace(@"\", string.Empty));
+            }
+            catch (IOException ex)
+            {
+                ex.LogExceptionToFile("Error.txt");
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
         }
     }
 }
