@@ -30,11 +30,12 @@ namespace Movie_Catalog.Controllers
             List<Movie> movieCatalog = new List<Movie>();
             try
             {
-                var results = new ObjectResult(_movieRepository.GetAll())
-                {
-                    StatusCode = (int)HttpStatusCode.OK
-                };
-                return results;
+                //var results = new ObjectResult(_movieRepository.GetAll())
+                //{
+                //    StatusCode = (int)HttpStatusCode.OK
+                //};
+                //return results;
+                return Ok(_movieRepository.GetAll());
             }
             catch (Exception)
             {
@@ -58,7 +59,7 @@ namespace Movie_Catalog.Controllers
         public IActionResult PostMovie([FromBody]Movie movie)
         {
             var blnSucess = _movieRepository.InsertMovie(movie);
-            if (blnSucess)
+            if (!blnSucess)
             {
                 return NotFound();
             }
@@ -69,18 +70,18 @@ namespace Movie_Catalog.Controllers
         public IActionResult PutMovie([FromRoute] int id, [FromBody]Movie movie)
         {
             var blnSucess = _movieRepository.UpdateMovie(id,movie);
-            if (blnSucess)
+            if (!blnSucess)
             {
                 return NotFound();
             }
-            return Ok(movie);
+            return Ok();
         }
         
         [HttpDelete("{id}")]
         public IActionResult DeleteMovie(int id)
         {
             var blnSucess = _movieRepository.DeleteMovie(id);
-            if (blnSucess)
+            if (!blnSucess)
             {
                 return NotFound();
             }

@@ -11,14 +11,15 @@ using System.Threading.Tasks;
 
 namespace Movie_Catalog.Repo
 {
+  
     public class MovieRepo : IMovie
     {
-        IConfiguration _configuration;
-        readonly JSonHelper _jsonHelper;
+        private  IConfiguration _configuration;
+        private  JSonHelper _jsonHelper;
         public MovieRepo(IConfiguration configuration)
         {
             _configuration = configuration;
-            _jsonHelper = new JSonHelper(_configuration.GetSection("JsonDataSource").GetSection("Path").Value);
+            _jsonHelper = new JSonHelper("./DataSource/MovieCatalog.json");
         }
 
         public List<Movie> GetAll()

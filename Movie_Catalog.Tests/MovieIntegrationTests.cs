@@ -20,10 +20,24 @@ namespace Movie_Catalog.Tests
         }
 
         [Fact]
-        public void GetMoviesTest()
+        public void Get()
         {
             // Arrange
-            var request = new HttpRequestMessage(new HttpMethod("GET"), "http://localhost:63063/api/MovieCatalog");
+            var request = new HttpRequestMessage(new HttpMethod("GET"), $"http://localhost:63063/api/MovieCatalog/");
+
+            // Act
+            var response = _client.SendAsync(request).Result;
+
+            // Assert
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Theory]
+        [InlineData(100)]
+        public void GetMovie(int id)
+        {
+            // Arrange
+            var request = new HttpRequestMessage(new HttpMethod("GET"), $"http://localhost:63063/api/MovieCatalog/{id}");
 
             // Act
             var response = _client.SendAsync(request).Result;

@@ -36,7 +36,7 @@ namespace Movie_Catalog
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseMiddleware<StackifyMiddleware.RequestTracerMiddleware>();
             app.UseMvc();
         }
     }
