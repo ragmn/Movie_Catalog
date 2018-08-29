@@ -37,7 +37,13 @@ namespace Movie_Catalog
                 app.UseDeveloperExceptionPage();
             }
             app.UseMiddleware<StackifyMiddleware.RequestTracerMiddleware>();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                     template: "api/{controller}/{action}/{id?}",
+                     defaults: new { controller = "MovieCatalog", action = "GetMovies" });
+            });
         }
     }
 }

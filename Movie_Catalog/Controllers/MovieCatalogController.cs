@@ -30,11 +30,6 @@ namespace Movie_Catalog.Controllers
             List<Movie> movieCatalog = new List<Movie>();
             try
             {
-                //var results = new ObjectResult(_movieRepository.GetAll())
-                //{
-                //    StatusCode = (int)HttpStatusCode.OK
-                //};
-                //return results;
                 return Ok(_movieRepository.GetAll());
             }
             catch (Exception)

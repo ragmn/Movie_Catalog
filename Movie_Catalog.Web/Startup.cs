@@ -43,7 +43,8 @@ namespace Movie_Catalog.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                     template: "{controller}/{action}/{id?}",
+                     defaults: new { controller = "Movie", action = "Details" });
             });
         }
     }
