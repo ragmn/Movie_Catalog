@@ -33,3 +33,15 @@
         display: none;
     }
 }
+.color-green{
+    color: #2c9b2e;
+}
+.color-red {
+    color: #fb0909;
+}
+.hand-cursor{
+    cursor :pointer;
+}
+.left-padding-8px {
+    padding-left: 8px;
+}

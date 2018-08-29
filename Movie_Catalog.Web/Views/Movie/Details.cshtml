@@ -1,0 +1,111 @@
+﻿
+
+
+<h2>Details</h2>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Movie ID</th>
+            <th>Movie Titlee</th>
+            <th>Description</th>
+            <th>Image URL</th>
+            <th>Release Year</th>
+            <th>Genre</th>
+            <th>EDIT</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Movie ID</th>
+            <th>Movie Titlee</th>
+            <th>Description</th>
+            <th>Image URL</th>
+            <th>Release Year</th>
+            <th>Genre</th>
+            <th>EDIT</th>
+        </tr>
+    </tfoot>
+</table>
+@section Scripts
+{
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script type="text/javascript">
+    $(function() {
+        $(document).ready(function () {
+            $('#example').DataTable({
+                //"processing": true,
+                //"serverSide": true,
+                //"filter": true, // this is for disable filter (search box)
+                //"orderMulti": false, // for disable multiple column at once
+                "ajax":  "../Movie/GetData",
+                "dataSrc": 'data',
+                "columns": [
+                    { "data": "movieID", "name": "Movie ID", "autoWidth": true },
+                    { "data": "movieTitle", "name": "Movie Title", "autoWidth": true },
+                    { "data": "description", "name": "Description", "autoWidth": true },
+                    { "data": "imageURL", "name": "Image URL", "autoWidth": true },
+                    { "data": "releaseYear", "name": "Release Year", "autoWidth": true },
+                    { "data": "genre", "name": "Genre", "autoWidth": true },
+                    { "data": null, "orderable": false, "defaultContent": "<i class='fas fa-edit color-green hand-cursor fa-lg' aria-hidden='true'></i><i class='fas fa-trash-alt color-red fa-lg left-padding-8px hand-cursor'></i>", "sortable": false }
+
+                ]
+            });
+        });
+    });
+
+
+    @*<script type="text/javascript">
+        $("#jsGrid").jsGrid({
+            height: 300,
+            width: "100%",
+            filtering: true,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            pageLoading: true,
+
+            loadData: function (filter) {
+                console.log("LoadData called....")
+                var d = $.Deferred();
+                $.ajax({
+                    type: "GET",
+                    url: "../../Movie/GetData",
+                    data: filter
+                }).success(function (response) {
+                    var dt = {
+                        data: [response], // provide array, not a string here too
+                        itemsCount: response.length
+                    };
+                    console.log(response);
+                    d.resolve(dt);
+                });
+                return d.promise();
+            },
+            pageSize: 10,
+            pageButtonCount: 5,
+            pageIndex: 1,
+
+            noDataContent: "No Record Found",
+            loadIndication: true,
+            loadIndicationDelay: 500,
+            loadMessage: "Please, wait...",
+            loadShading: true,
+
+            fields: [
+                { name: "movieID", type: "text", width: 150 },
+                { name: "movieTitle", type: "number", width: 50 },
+                { name: "description", type: "number", width: 50 },
+                { name: "imageURL", type: "text", width: 200 },
+                { name: "releaseYear", type: "text", width: 200 },
+                { name: "genre", type: "text", width: 200 },
+            ],
+            onError: function (args) {
+                gridInstance = args.grid;
+            }
+        });*@
+    </script>
+}
+
