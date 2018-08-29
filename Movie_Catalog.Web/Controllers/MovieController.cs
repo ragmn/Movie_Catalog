@@ -22,8 +22,8 @@ namespace Movie_Catalog.Web.Controllers
                 List<Movie> movieList;
                 try
                 {
-                    client.BaseAddress = new Uri($"http://localhost:63063/");
-                    //client.BaseAddress = new Uri("https://moviecatalog20180826010709.azurewebsites.net/");
+                    //client.BaseAddress = new Uri($"http://localhost:63063/");
+                    client.BaseAddress = new Uri("http://ragmnmoviecatalogapi.azurewebsites.net/");
                     var response = await client.GetAsync($"api/MovieCatalog");
                     response.EnsureSuccessStatusCode();
                     var stringResult = await response.Content.ReadAsStringAsync();

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Movie_Catalog.Repo;
 using Movie_Catalog.Services;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Movie_Catalog
 {
@@ -27,6 +28,10 @@ namespace Movie_Catalog
         {
             services.AddScoped<IMovie, MovieRepo > ();
             services.AddMvc();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +48,15 @@ namespace Movie_Catalog
                     name: "default",
                      template: "api/{controller}/{action}/{id?}",
                      defaults: new { controller = "MovieCatalog", action = "GetMovies" });
+            });
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
         }
     }

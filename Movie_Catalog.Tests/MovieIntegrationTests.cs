@@ -45,5 +45,18 @@ namespace Movie_Catalog.Tests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
+        [Theory]
+        [InlineData(44)]
+        public void DeleteMovie(int id)
+        {
+            // Arrange
+            var request = new HttpRequestMessage(new HttpMethod("DELETE"), $"http://localhost:63063/api/MovieCatalog/{id}");
+
+            // Act
+            var response = _client.SendAsync(request).Result;
+
+            // Assert
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
     }
 }
